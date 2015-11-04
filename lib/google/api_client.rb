@@ -131,7 +131,7 @@ module Google
       ca_file = options[:ca_file] || File.expand_path('../../cacerts.pem', __FILE__)
       self.connection = Faraday.new do |faraday|
         faraday.response :charset if options[:force_encoding]
-        faraday.response :gzip
+        # faraday.response :gzip
         faraday.options.params_encoder = Faraday::FlatParamsEncoder
         faraday.ssl.ca_file = ca_file
         faraday.ssl.verify = true
